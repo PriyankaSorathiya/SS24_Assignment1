@@ -76,7 +76,7 @@ def linear_single_lgrad(cache):
 	### START OF YOUR CODE                                                         #
 	### TODO: implement the local gradient calculation.                            #	
 	################################################################################
-	pass
+	# pass
 	################################################################################
 	### END OF YOUR CODE                                                           #
 	################################################################################
@@ -96,19 +96,10 @@ def squared_error_lgrad(cache):
 	y_predg: torch tensor of shape (1) - local gradient with respect to y_pred
 	yg: torch tensor of shape (1) - local gradient with respect to y
 	"""
-
 	y_pred, y = cache
 
-	# compute local gradients
-	################################################################################
-	### START OF YOUR CODE                                                         #
-	### TODO: implement the local gradient calculation.                            #	
-	################################################################################
-	
-	# pass
-	################################################################################
-	### END OF YOUR CODE                                                           #
-	################################################################################
+	### TODO: implement the local gradient calculation. 
+
 	y_predg = y_pred - y
 	yg = -(y_pred - y)
 
@@ -133,15 +124,8 @@ def linear_single_ggrad(cache, gout):
 
 	xg, wg, bg = cache
 
-	# compute global gradients
-	################################################################################
-	### START OF YOUR CODE                                                         #
-	### TODO: implement the global gradient calculation.                           #	
-	################################################################################
-	pass
-	################################################################################
-	### END OF YOUR CODE                                                           #
-	################################################################################
+	### TODO: implement the global gradient calculation.    
+	                
 	xgrad = gout * xg
 	wgrad = gout * wg
 	bgrad = gout * bg
@@ -161,16 +145,7 @@ def linear_forward(X, w, b):
 	out: torch.tensor of shape (n, 1) - outputs of linear transform
 	cache: tuple (X, w, b)
 	"""
-
-	# forward pass
-	################################################################################
-	### START OF YOUR CODE                                                         #
-	### TODO: implement the forward pass.										   #	
-	################################################################################
-	pass
-	################################################################################
-	### END OF YOUR CODE                                                           #
-	################################################################################
+	### TODO: implement the forward pass
 	out = X @ w + b  # Matrix multiplication followed by bias addition
 	cache = (X, w, b)
 	
@@ -188,16 +163,7 @@ def mse_forward(y_pred, y):
 	loss: torch.tensor of shape (1) - squared error loss
 	cache: tuple (y_pred, y)
 	"""
-
-	# forward pass
-	################################################################################
-	### START OF YOUR CODE                                                         #
-	### TODO: implement the forward pass.										   #	
-	################################################################################
-	pass
-	################################################################################
-	### END OF YOUR CODE                                                           #
-	################################################################################
+	### TODO: implement the forward pass
 	loss = torch.mean((y_pred - y) ** 2)
 	cache = (y_pred, y)
 	
@@ -219,16 +185,7 @@ def linear_backward(cache, gout):
 	wgrad: torch.tensor of shape (d, 1) - global gradient with respect to input weight vector
 	bgrad: float - global gradient with respect to bias
 	"""
-
-	# forward pass
-	################################################################################
-	### START OF YOUR CODE                                                         #
-	### TODO: implement the forward pass.										   #	
-	################################################################################
-	pass
-	################################################################################
-	### END OF YOUR CODE                                                           #
-	################################################################################
+	### TODO: implement the forward pass.										  
 
 	X, w, b = cache
 	n, d = X.shape
@@ -259,15 +216,8 @@ def mse_backward(cache):
 	ygrad: torch tensor of shape (n, 1) - global gradient with respect to y
 	"""
 
-	# backward pass
-	################################################################################
-	### START OF YOUR CODE                                                         #
-	### TODO: implement the backward pass.										   #	
-	################################################################################
-	pass
-	################################################################################
-	### END OF YOUR CODE                                                           #
-	################################################################################
+	### TODO: implement the backward pass.
+	
 	y_pred, y = cache
 	n = y.shape[0]  # number of samples
 

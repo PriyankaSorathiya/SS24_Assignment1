@@ -26,15 +26,8 @@ class Linear:
 		Arguments:
 			W: torch.tensor of shape (out_feartures, in_features) - weight matrix
 			b: torch.tensor of shape (1, out_features) - bias vector
-		""" 
-		################################################################################
-		### START OF YOUR CODE                                                         #
-		### TODO: implement the init step.                                             #	
-		################################################################################
-		# pass
-		################################################################################
-		### END OF YOUR CODE                                                           #
-		################################################################################
+		"""                                                    
+		# TODO: implement the init step. (1)                                          	
 		if not isinstance(W, torch.Tensor):\
 			    W = torch.tensor(W, dtype=torch.float32)
 		if not isinstance(b, torch.Tensor):
@@ -53,17 +46,9 @@ class Linear:
 
 		Returns:
 			torch.tensor of shape (num_instances, out_features) - output data
-		""" 
-		################################################################################
-		### START OF YOUR CODE                                                         #
-		### TODO: implement the forward pass.										   #	
-		################################################################################
-		# pass
-		################################################################################
-		### END OF YOUR CODE                                                           #
-		################################################################################
+		"""                                                      
+		### TODO: implement the forward pass (2)
 		# Perform linear transformation
-
 		# Ensure ins is at least 2D
 		if ins.dim() == 1:
 			ins = ins.unsqueeze(0)  # Add batch dimension if input is 1D
@@ -83,14 +68,7 @@ class Linear:
 		Returns:
 			torch.tensor of shape (num_instances, num_dims) - input data global gradients
 		""" 
-		################################################################################
-		### START OF YOUR CODE                                                         #
-		### TODO: implement the backward pass.										   #	
-		################################################################################
-		# pass
-		################################################################################
-		### END OF YOUR CODE                                                           #
-		################################################################################
+		### TODO: implement the backward paSS(3)
 		self.W_g = gout.T @ self.ins
 		self.b_g = torch.sum(gout, dim=0, keepdim=True)
 		self.ins_g = gout @ self.W
@@ -116,14 +94,8 @@ class Relu:
 		Returns:
 			torch.tensor of shape (num_instances, num_dims) - output data
 		""" 
-		################################################################################
-		### START OF YOUR CODE                                                         #
-		### TODO: implement the forward pass.										   #	
-		################################################################################
-		# pass
-		################################################################################
-		### END OF YOUR CODE                                                           #
-		################################################################################
+		
+		### TODO: implement the forward pass.(4)
 		# Apply ReLU activation function
 		self.ins = ins
 		self.outs = torch.relu(ins)
@@ -139,14 +111,9 @@ class Relu:
 		Returns:
 			torch.tensor of shape (num_instances, num_dims) - input data global gradients
 		""" 
-		################################################################################
-		### START OF YOUR CODE                                                         #
-		### TODO: implement the backward pass.										   #	
-		################################################################################
-		# pass
-		################################################################################
-		### END OF YOUR CODE                                                           #
-		################################################################################
+		
+		### TODO: implement the backward pass(5)
+	
 		self.ins_g = gout * (self.ins > 0).float()
 
 		return self.ins.g
